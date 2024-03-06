@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4k0gmi0kq2da"]
+[gd_scene load_steps=10 format=3 uid="uid://b4k0gmi0kq2da"]
 
 [ext_resource type="Script" path="res://scenes/components/move_component/move_component.gd" id="1_033tt"]
 [ext_resource type="Script" path="res://scenes/game_objects/enemies/basic_enemy.gd" id="1_oif87"]
@@ -6,14 +6,43 @@
 [ext_resource type="Script" path="res://scenes/components/scale_component/scale_component.gd" id="2_j7tvd"]
 [ext_resource type="Script" path="res://scenes/components/hurtbox_component/hurtbox_component.gd" id="5_6untt"]
 [ext_resource type="Script" path="res://scenes/components/shake_component/shake_component.gd" id="5_ig64b"]
+[ext_resource type="Material" uid="uid://ctvdkbwqfq3nk" path="res://scenes/game_objects/enemies/flash_material.tres" id="7_vru20"]
+
+[sub_resource type="Animation" id="Animation_yipql"]
+resource_name = "flash"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/flash_pourcentage")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.9, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sto60"]
+_data = {
+"flash": SubResource("Animation_yipql")
+}
 
 [node name="BasicEnemy" type="Node2D"]
 script = ExtResource("1_oif87")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sto60")
+}
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("2_hlmxa")
 
-[node name="MoveCompenent" type="Node" parent="." node_paths=PackedStringArray("actor")]
+[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("1_033tt")
 actor = NodePath("..")
 
@@ -22,11 +51,9 @@ script = ExtResource("2_j7tvd")
 actor = NodePath("../AnimatedSprite2D")
 target_scale = Vector2(1.35, 1.35)
 
-[node name="ShakeComponent" type="Node" parent="." node_paths=PackedStringArray("sprite", "hurtbox_component", "scale_component")]
+[node name="ShakeComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
 script = ExtResource("5_ig64b")
 sprite = NodePath("../AnimatedSprite2D")
-hurtbox_component = NodePath("../HurtboxComponent")
-scale_component = NodePath("../ScaleComponent")
 
 [node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
 collision_layer = 0
@@ -34,6 +61,5 @@ collision_mask = 2
 script = ExtResource("5_6untt")
 health_component = NodePath("../HealthComponent")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = ExtResource("7_vru20")

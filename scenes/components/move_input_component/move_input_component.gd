@@ -1,6 +1,6 @@
 extends Node
 
-@export var move_component: MoveCompenent
+@export var move_component: MoveComponent
 @export var move_stats: MoveStats
 
 

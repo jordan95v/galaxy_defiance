@@ -12,7 +12,7 @@ scroll_ignore_camera_zoom = true
 script = ExtResource("1_kw7e0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 240)
+position = Vector2(0, 256)
 rotation = -1.5708
 texture = ExtResource("2_7vum8")
 centered = false

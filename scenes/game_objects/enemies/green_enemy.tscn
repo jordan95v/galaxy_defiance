@@ -1,9 +1,29 @@
-[gd_scene load_steps=11 format=3 uid="uid://qpl8dcagwouc"]
+[gd_scene load_steps=13 format=3 uid="uid://qpl8dcagwouc"]
 
 [ext_resource type="PackedScene" uid="uid://b4k0gmi0kq2da" path="res://scenes/game_objects/enemies/basic_enemy.tscn" id="1_t2vxv"]
 [ext_resource type="Texture2D" uid="uid://bnxyv8ol886eh" path="res://assets/green_enemy.png" id="2_tdedi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o48gh"]
+
+[sub_resource type="Shader" id="Shader_vgjah"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform vec4 flash_color : source_color = vec4(1.0);
+uniform float flash_pourcentage : hint_range(0.0, 1.0) = 0.0;
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	color.rgb = mix(color.rgb, flash_color.rgb, flash_pourcentage);
+	COLOR = color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_btvld"]
+resource_local_to_scene = true
+shader = SubResource("Shader_vgjah")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_pourcentage = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iv6ya"]
 atlas = ExtResource("2_tdedi")
@@ -62,15 +82,14 @@ animations = [{
 
 [node name="GreenEnemy" instance=ExtResource("1_t2vxv")]
 
-[node name="MoveCompenent" parent="." index="1"]
+[node name="MoveComponent" parent="." index="3"]
 velocity = Vector2(0, 30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
 shape = SubResource("CircleShape2D_o48gh")
 
-[node name="AnimatedSprite2D" parent="." index="6"]
+[node name="AnimatedSprite2D" parent="." index="7"]
+material = SubResource("ShaderMaterial_btvld")
 sprite_frames = SubResource("SpriteFrames_yimgd")
-animation = &"die"
 autoplay = "default"
-frame = 1
-frame_progress = 0.871487
+frame_progress = 0.206221

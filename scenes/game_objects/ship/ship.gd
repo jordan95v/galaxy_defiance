@@ -1,13 +1,13 @@
 extends Node2D
 
-@onready var spawn_component: SpawnComponent = $SpawnComponent
 @onready var left_cannon: Marker2D = $LeftCannon
 @onready var right_cannon: Marker2D = $RightCannon
 @onready var fire_rate_timer: Timer = $FireRateTimer
-@onready var scale_component: ScaleComponent = $ScaleComponent
-@onready var move_component: MoveCompenent = $MoveComponent
 @onready var animated_sprite_2d: AnimatedSprite2D = $Visuals/AnimatedSprite2D
 @onready var flame_animated_sprite_2d: AnimatedSprite2D = $Visuals/FlameAnimatedSprite2D
+@onready var spawn_component: SpawnComponent = $SpawnComponent
+@onready var scale_component: ScaleComponent = $ScaleComponent
+@onready var move_component: MoveComponent = $MoveComponent
 
 
 func _ready() -> void:
