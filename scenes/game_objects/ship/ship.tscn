@@ -1,0 +1,161 @@
+[gd_scene load_steps=25 format=3 uid="uid://2v522uaf6evr"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/ship/ship.gd" id="1_5ip12"]
+[ext_resource type="Texture2D" uid="uid://dr4iaxw4epat1" path="res://assets/player_ship.png" id="1_utur1"]
+[ext_resource type="PackedScene" uid="uid://bgmj6gucsi01l" path="res://scenes/components/move_component/move_component.tscn" id="2_afxwq"]
+[ext_resource type="PackedScene" uid="uid://d2mchr7l2okv3" path="res://scenes/components/move_input_component/move_input_component.tscn" id="4_6exiq"]
+[ext_resource type="Script" path="res://resources/move_stats.gd" id="6_1ga4o"]
+[ext_resource type="PackedScene" uid="uid://cwaek2bpgie8f" path="res://scenes/components/clamp_component/clamp_component.tscn" id="7_o3vtl"]
+[ext_resource type="PackedScene" uid="uid://chfqqnuajer2b" path="res://scenes/components/spawn_component/spawn_component.tscn" id="8_gc4gi"]
+[ext_resource type="PackedScene" uid="uid://di0ym8fde547n" path="res://scenes/game_objects/projectiles/laser/laser.tscn" id="11_fsw4u"]
+[ext_resource type="PackedScene" uid="uid://dsyctubsc3j1h" path="res://scenes/components/scale_component/scale_component.tscn" id="13_dtyi0"]
+[ext_resource type="Texture2D" uid="uid://bhf5tog0s3q1u" path="res://assets/boosters/boosters_left.png" id="15_ef14q"]
+[ext_resource type="Texture2D" uid="uid://cue55ur4fi44f" path="res://assets/boosters/boosters.png" id="15_ki0p5"]
+[ext_resource type="Texture2D" uid="uid://bw5q83sng4swn" path="res://assets/boosters/boosters_right.png" id="16_mx7b4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5jfq"]
+atlas = ExtResource("1_utur1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l2ok"]
+atlas = ExtResource("1_utur1")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26bok"]
+atlas = ExtResource("1_utur1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wks67"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5jfq")
+}],
+"loop": true,
+"name": &"bank_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3l2ok")
+}],
+"loop": true,
+"name": &"bank_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26bok")
+}],
+"loop": false,
+"name": &"center",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ea0mu"]
+atlas = ExtResource("15_ef14q")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v0vn"]
+atlas = ExtResource("15_ef14q")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r5t0"]
+atlas = ExtResource("16_mx7b4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhxpa"]
+atlas = ExtResource("16_mx7b4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hc6yx"]
+atlas = ExtResource("15_ki0p5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67xao"]
+atlas = ExtResource("15_ki0p5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7k0gn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ea0mu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v0vn")
+}],
+"loop": true,
+"name": &"bank_left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r5t0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhxpa")
+}],
+"loop": true,
+"name": &"bank_right",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hc6yx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67xao")
+}],
+"loop": true,
+"name": &"center",
+"speed": 7.0
+}]
+
+[sub_resource type="Resource" id="Resource_ba1fv"]
+script = ExtResource("6_1ga4o")
+speed = 50.0
+
+[node name="Ship" type="Node2D"]
+script = ExtResource("1_5ip12")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
+sprite_frames = SubResource("SpriteFrames_wks67")
+animation = &"center"
+autoplay = "center"
+
+[node name="FlameAnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_7k0gn")
+animation = &"bank_right"
+autoplay = "center"
+
+[node name="MoveComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("2_afxwq")]
+actor = NodePath("..")
+
+[node name="MoveInputComponent" parent="." node_paths=PackedStringArray("move_component") instance=ExtResource("4_6exiq")]
+move_component = NodePath("../MoveComponent")
+move_stats = SubResource("Resource_ba1fv")
+
+[node name="ClampComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("7_o3vtl")]
+actor = NodePath("..")
+
+[node name="SpawnComponent" parent="." instance=ExtResource("8_gc4gi")]
+scene = ExtResource("11_fsw4u")
+
+[node name="ScaleComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("13_dtyi0")]
+actor = NodePath("../Visuals")
+target_scale = Vector2(1.2, 1.2)
+duration = 0.4
+
+[node name="FireRateTimer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="LeftCannon" type="Marker2D" parent="."]
+position = Vector2(-5, -6)
+
+[node name="RightCannon" type="Marker2D" parent="."]
+position = Vector2(5, -6)

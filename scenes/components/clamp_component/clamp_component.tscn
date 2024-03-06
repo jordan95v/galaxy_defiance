@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwaek2bpgie8f"]
+
+[ext_resource type="Script" path="res://scenes/components/clamp_component/clamp_component.gd" id="1_tafaj"]
+
+[node name="ClampComponent" type="Node"]
+script = ExtResource("1_tafaj")

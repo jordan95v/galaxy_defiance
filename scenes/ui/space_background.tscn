@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckg8m0k737l3a"]
+
+[ext_resource type="Script" path="res://scenes/ui/space_background.gd" id="1_kw7e0"]
+[ext_resource type="Texture2D" uid="uid://e8pbcb1q4acv" path="res://assets/space_parralax/parallax-space-backgound.png" id="2_7vum8"]
+[ext_resource type="Texture2D" uid="uid://d4kqyuian3fg4" path="res://assets/space_parralax/parallax-space-far-planets.png" id="3_hg3em"]
+[ext_resource type="Texture2D" uid="uid://v8yc53dmyhf6" path="res://assets/space_parralax/parallax-space-stars.png" id="3_v34c8"]
+[ext_resource type="Texture2D" uid="uid://dcjcxsldglwl2" path="res://assets/space_parralax/parallax-space-big-planet.png" id="4_hkc67"]
+[ext_resource type="Texture2D" uid="uid://derl0u62im05h" path="res://assets/space_parralax/parallax-space-ring-planet.png" id="5_4f077"]
+
+[node name="SpaceBackground" type="ParallaxBackground"]
+scroll_ignore_camera_zoom = true
+script = ExtResource("1_kw7e0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 240)
+rotation = -1.5708
+texture = ExtResource("2_7vum8")
+centered = false
+
+[node name="FarPlanets" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(0, 544)
+
+[node name="Sprite2D" type="Sprite2D" parent="FarPlanets"]
+position = Vector2(0, 272)
+rotation = -1.5708
+texture = ExtResource("3_hg3em")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="FarPlanets"]
+position = Vector2(0, 544)
+rotation = -1.5708
+texture = ExtResource("3_hg3em")
+centered = false
+flip_h = true
+flip_v = true
+
+[node name="BigPlanet" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(0, 480)
+
+[node name="Sprite2D" type="Sprite2D" parent="BigPlanet"]
+position = Vector2(8, 125)
+texture = ExtResource("4_hkc67")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="BigPlanet"]
+position = Vector2(73, 360)
+texture = ExtResource("4_hkc67")
+centered = false
+
+[node name="RingPlanet" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(0, 600)
+
+[node name="Sprite2D" type="Sprite2D" parent="RingPlanet"]
+position = Vector2(125, -2)
+rotation = 0.785398
+texture = ExtResource("5_4f077")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="RingPlanet"]
+position = Vector2(-15, 331)
+rotation = -0.785398
+texture = ExtResource("5_4f077")
+centered = false
+
+[node name="Stars" type="ParallaxLayer" parent="."]
+motion_offset = Vector2(0, 20)
+motion_mirroring = Vector2(0, 280)
+
+[node name="Sprite2D" type="Sprite2D" parent="Stars"]
+position = Vector2(0, 272)
+rotation = -1.5708
+texture = ExtResource("3_v34c8")
+centered = false

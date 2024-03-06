@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsyctubsc3j1h"]
+
+[ext_resource type="Script" path="res://scenes/components/scale_component/scale_component.gd" id="1_4blvb"]
+
+[node name="ScaleComponent" type="Node"]
+script = ExtResource("1_4blvb")

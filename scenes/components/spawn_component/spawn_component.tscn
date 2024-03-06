@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://chfqqnuajer2b"]
+
+[ext_resource type="Script" path="res://scenes/components/spawn_component/spawn_component.gd" id="1_wfr64"]
+
+[node name="SpawnComponent" type="Node"]
+script = ExtResource("1_wfr64")
