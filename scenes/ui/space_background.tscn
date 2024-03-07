@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://derl0u62im05h" path="res://assets/space_parralax/parallax-space-ring-planet.png" id="5_4f077"]
 
 [node name="SpaceBackground" type="ParallaxBackground"]
+process_mode = 3
 scroll_ignore_camera_zoom = true
 script = ExtResource("1_kw7e0")
 

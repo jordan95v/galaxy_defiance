@@ -1,9 +1,9 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ctvdkbwqfq3nk"]
 
-[ext_resource type="Shader" path="res://scenes/game_objects/enemies/flash_shader.gdshader" id="1_70jmc"]
+[ext_resource type="Shader" path="res://resources/flash_shader.gdshader" id="1_8r2bm"]
 
 [resource]
 resource_local_to_scene = true
-shader = ExtResource("1_70jmc")
+shader = ExtResource("1_8r2bm")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
 shader_parameter/flash_pourcentage = 0.0

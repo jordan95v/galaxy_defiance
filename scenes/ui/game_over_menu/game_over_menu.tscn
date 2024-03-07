@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://6okjpf8xs4hc"]
+
+[ext_resource type="Script" path="res://scenes/ui/game_over_menu/game_over_menu.gd" id="1_cn5nt"]
+[ext_resource type="FontFile" uid="uid://d4l8ftvhdjw1d" path="res://assets/BitPotion.ttf" id="1_o0x7y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8d5m4"]
+font = ExtResource("1_o0x7y")
+font_size = 32
+outline_size = 1
+outline_color = Color(0.917647, 0.360784, 0, 1)
+shadow_color = Color(0.917647, 0.360784, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7rern"]
+font = ExtResource("1_o0x7y")
+outline_size = 1
+outline_color = Color(0.917647, 0.360784, 0, 1)
+shadow_color = Color(0.917647, 0.360784, 0, 1)
+
+[node name="GameOverMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_cn5nt")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="GameLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "YOU HAVE LOST"
+label_settings = SubResource("LabelSettings_8d5m4")
+horizontal_alignment = 1
+
+[node name="HintLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "PRESS 'SPACE' TO RETURN TO 
+MAIN MENU
+PRESS 'ENTER' TO RESTART"
+label_settings = SubResource("LabelSettings_7rern")
+horizontal_alignment = 1

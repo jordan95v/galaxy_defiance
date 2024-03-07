@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bnilwl2sp1lsa" path="res://assets/laser_beam.png" id="1_v7vca"]
 [ext_resource type="Script" path="res://scenes/components/move_component/move_component.gd" id="2_760ws"]
 [ext_resource type="Script" path="res://scenes/components/scale_component/scale_component.gd" id="3_cmmdx"]
-[ext_resource type="Script" path="res://scenes/components/hitbox_component/hitbox_component.gd" id="5_j3ket"]
+[ext_resource type="PackedScene" uid="uid://c5hw2nvofyp0w" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="5_hagfw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vp5vr"]
 size = Vector2(8, 14)
@@ -29,10 +29,9 @@ hframes = 4
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-[node name="HitboxComponent" type="Area2D" parent="."]
+[node name="HitboxComponent" parent="." instance=ExtResource("5_hagfw")]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("5_j3ket")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("RectangleShape2D_vp5vr")

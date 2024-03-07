@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://ck2yooqxxo15e"]
+
+[ext_resource type="Script" path="res://scenes/ui/menu/menu.gd" id="1_qqqie"]
+[ext_resource type="PackedScene" uid="uid://ckg8m0k737l3a" path="res://scenes/ui/space_background.tscn" id="2_1pv4n"]
+[ext_resource type="FontFile" uid="uid://d4l8ftvhdjw1d" path="res://assets/BitPotion.ttf" id="3_liu24"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3cmek"]
+font = ExtResource("3_liu24")
+font_size = 32
+outline_size = 1
+outline_color = Color(0.917647, 0.360784, 0, 1)
+shadow_color = Color(0.917647, 0.360784, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rgegr"]
+font = ExtResource("3_liu24")
+outline_size = 1
+outline_color = Color(0.917647, 0.360784, 0, 1)
+shadow_color = Color(0.917647, 0.360784, 0, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qqqie")
+
+[node name="SpaceBackground" parent="." instance=ExtResource("2_1pv4n")]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="GameLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "GALAXY DEFIANCE"
+label_settings = SubResource("LabelSettings_3cmek")
+horizontal_alignment = 1
+
+[node name="HintLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "PRESS 'SPACE' TO PLAY"
+label_settings = SubResource("LabelSettings_rgegr")
+horizontal_alignment = 1

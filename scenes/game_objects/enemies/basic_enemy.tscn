@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4k0gmi0kq2da"]
+[gd_scene load_steps=12 format=3 uid="uid://b4k0gmi0kq2da"]
 
-[ext_resource type="Script" path="res://scenes/components/move_component/move_component.gd" id="1_033tt"]
 [ext_resource type="Script" path="res://scenes/game_objects/enemies/basic_enemy.gd" id="1_oif87"]
-[ext_resource type="Script" path="res://scenes/components/health_component/health_component.gd" id="2_hlmxa"]
-[ext_resource type="Script" path="res://scenes/components/scale_component/scale_component.gd" id="2_j7tvd"]
-[ext_resource type="Script" path="res://scenes/components/hurtbox_component/hurtbox_component.gd" id="5_6untt"]
-[ext_resource type="Script" path="res://scenes/components/shake_component/shake_component.gd" id="5_ig64b"]
-[ext_resource type="Material" uid="uid://ctvdkbwqfq3nk" path="res://scenes/game_objects/enemies/flash_material.tres" id="7_vru20"]
+[ext_resource type="PackedScene" uid="uid://wy0tpiqtlvhq" path="res://scenes/components/shake_component/shake_component.tscn" id="2_j11eo"]
+[ext_resource type="PackedScene" uid="uid://dsyctubsc3j1h" path="res://scenes/components/scale_component/scale_component.tscn" id="3_f30gn"]
+[ext_resource type="PackedScene" uid="uid://bgmj6gucsi01l" path="res://scenes/components/move_component/move_component.tscn" id="4_2fku0"]
+[ext_resource type="PackedScene" uid="uid://calacfe7abcrh" path="res://scenes/components/health_component/health_component.tscn" id="5_1olh2"]
+[ext_resource type="Material" uid="uid://ctvdkbwqfq3nk" path="res://resources/flash_material.tres" id="6_67cva"]
+[ext_resource type="PackedScene" uid="uid://b0ohk2o5l0lcp" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="7_r7j5w"]
+[ext_resource type="PackedScene" uid="uid://c5hw2nvofyp0w" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="8_53it0"]
 
 [sub_resource type="Animation" id="Animation_yipql"]
 resource_name = "flash"
@@ -24,8 +25,12 @@ tracks/0/keys = {
 "values": [0.9, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_sguyb"]
+resource_name = "RESET"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sto60"]
 _data = {
+"RESET": SubResource("Animation_sguyb"),
 "flash": SubResource("Animation_yipql")
 }
 
@@ -37,29 +42,29 @@ libraries = {
 "": SubResource("AnimationLibrary_sto60")
 }
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-
-[node name="HealthComponent" type="Node" parent="."]
-script = ExtResource("2_hlmxa")
-
-[node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
-script = ExtResource("1_033tt")
-actor = NodePath("..")
-
-[node name="ScaleComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
-script = ExtResource("2_j7tvd")
-actor = NodePath("../AnimatedSprite2D")
-target_scale = Vector2(1.35, 1.35)
-
-[node name="ShakeComponent" type="Node" parent="." node_paths=PackedStringArray("sprite")]
-script = ExtResource("5_ig64b")
+[node name="ShakeComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("2_j11eo")]
 sprite = NodePath("../AnimatedSprite2D")
 
-[node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("5_6untt")
-health_component = NodePath("../HealthComponent")
+[node name="ScaleComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("3_f30gn")]
+actor = NodePath("../AnimatedSprite2D")
+target_scale = Vector2(1.3, 1.3)
+duration = 0.4
+
+[node name="MoveComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("4_2fku0")]
+actor = NodePath("..")
+velocity = Vector2(0, 30)
+
+[node name="HealthComponent" parent="." instance=ExtResource("5_1olh2")]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-material = ExtResource("7_vru20")
+material = ExtResource("6_67cva")
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_r7j5w")]
+collision_layer = 0
+collision_mask = 2
+health_component = NodePath("../HealthComponent")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("8_53it0")]
+collision_mask = 0

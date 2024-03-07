@@ -6,7 +6,7 @@ var shake_strength: float = 0
 
 
 func apply_random_shake() -> void:
-	shake_strength = randf_range(4, 8)
+	shake_strength = randf_range(3, 6)
 
 
 func _process(_delta: float) -> void:
