@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://loqivrm0drtr"]
+
+[ext_resource type="Script" path="res://scenes/components/destroyed_component/destroyed_component.gd" id="1_smn3b"]
+[ext_resource type="PackedScene" uid="uid://bfpfpejhgb57k" path="res://scenes/game_objects/explosion/explosion.tscn" id="2_0wl78"]
+[ext_resource type="PackedScene" uid="uid://chfqqnuajer2b" path="res://scenes/components/spawn_component/spawn_component.tscn" id="3_d1urx"]
+
+[node name="DestroyedComponent" type="Node"]
+script = ExtResource("1_smn3b")
+
+[node name="SpawnComponent" parent="." instance=ExtResource("3_d1urx")]
+scene = ExtResource("2_0wl78")

@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1xammmwkudun"]
-
-[ext_resource type="Script" path="res://scenes/components/flash_component/flash_component.gd" id="1_uv7ph"]
-
-[node name="FlashComponent" type="Node"]
-script = ExtResource("1_uv7ph")

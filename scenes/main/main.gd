@@ -5,7 +5,7 @@ extends Node2D
 
 
 func _ready() -> void:
-	ship.died.connect(on_ship_died)
+	ship.tree_exited.connect(on_ship_died)
 
 
 func on_ship_died() -> void:

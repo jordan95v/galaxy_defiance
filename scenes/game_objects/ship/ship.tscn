@@ -1,11 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://2v522uaf6evr"]
+[gd_scene load_steps=34 format=3 uid="uid://2v522uaf6evr"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/ship/ship.gd" id="1_5ip12"]
 [ext_resource type="Texture2D" uid="uid://dr4iaxw4epat1" path="res://assets/player_ship.png" id="1_utur1"]
 [ext_resource type="Material" uid="uid://ctvdkbwqfq3nk" path="res://resources/flash_material.tres" id="2_7jq2b"]
 [ext_resource type="PackedScene" uid="uid://bgmj6gucsi01l" path="res://scenes/components/move_component/move_component.tscn" id="2_afxwq"]
 [ext_resource type="PackedScene" uid="uid://d2mchr7l2okv3" path="res://scenes/components/move_input_component/move_input_component.tscn" id="4_6exiq"]
-[ext_resource type="Texture2D" uid="uid://i80o8m0wyfh8" path="res://assets/explosion.png" id="4_psvc7"]
 [ext_resource type="Script" path="res://resources/move_stats.gd" id="6_1ga4o"]
 [ext_resource type="PackedScene" uid="uid://cwaek2bpgie8f" path="res://scenes/components/clamp_component/clamp_component.tscn" id="7_o3vtl"]
 [ext_resource type="PackedScene" uid="uid://chfqqnuajer2b" path="res://scenes/components/spawn_component/spawn_component.tscn" id="8_gc4gi"]
@@ -16,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bhf5tog0s3q1u" path="res://assets/boosters/boosters_left.png" id="15_ef14q"]
 [ext_resource type="Texture2D" uid="uid://cue55ur4fi44f" path="res://assets/boosters/boosters.png" id="15_ki0p5"]
 [ext_resource type="PackedScene" uid="uid://wy0tpiqtlvhq" path="res://scenes/components/shake_component/shake_component.tscn" id="16_1ut3p"]
+[ext_resource type="PackedScene" uid="uid://loqivrm0drtr" path="res://scenes/components/destroyed_component/destroyed_component.tscn" id="16_cmgkx"]
 [ext_resource type="Texture2D" uid="uid://bw5q83sng4swn" path="res://assets/boosters/boosters_right.png" id="16_mx7b4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h5jfq"]
@@ -29,26 +29,6 @@ region = Rect2(32, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_26bok"]
 atlas = ExtResource("1_utur1")
 region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6cddk"]
-atlas = ExtResource("4_psvc7")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dtb6b"]
-atlas = ExtResource("4_psvc7")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wc61t"]
-atlas = ExtResource("4_psvc7")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_himsf"]
-atlas = ExtResource("4_psvc7")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tbahx"]
-atlas = ExtResource("4_psvc7")
-region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wks67"]
 animations = [{
@@ -74,26 +54,6 @@ animations = [{
 }],
 "loop": false,
 "name": &"center",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6cddk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dtb6b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wc61t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_himsf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tbahx")
-}],
-"loop": false,
-"name": &"explosion",
 "speed": 5.0
 }]
 
@@ -161,22 +121,6 @@ animations = [{
 script = ExtResource("6_1ga4o")
 speed = 50.0
 
-[sub_resource type="Animation" id="Animation_3qgg6"]
-resource_name = "flash"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals/AnimatedSprite2D:material:shader_parameter/flash_pourcentage")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.9, 0.0]
-}
-
 [sub_resource type="Animation" id="Animation_y22hu"]
 length = 0.001
 tracks/0/type = "value"
@@ -190,6 +134,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3qgg6"]
+resource_name = "flash"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/AnimatedSprite2D:material:shader_parameter/flash_pourcentage")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.9, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_no1at"]
@@ -209,7 +169,7 @@ script = ExtResource("1_5ip12")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
 material = ExtResource("2_7jq2b")
 sprite_frames = SubResource("SpriteFrames_wks67")
-animation = &"explosion"
+animation = &"bank_left"
 autoplay = "center"
 
 [node name="FlameAnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
@@ -241,8 +201,12 @@ duration = 0.4
 [node name="ShakeComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("16_1ut3p")]
 sprite = NodePath("../Visuals/AnimatedSprite2D")
 
+[node name="DestroyedComponent" parent="." node_paths=PackedStringArray("actor", "health_component") instance=ExtResource("16_cmgkx")]
+actor = NodePath("..")
+health_component = NodePath("../HealthComponent")
+
 [node name="FireRateTimer" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.3
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

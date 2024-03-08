@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://qpl8dcagwouc"]
+[gd_scene load_steps=14 format=3 uid="uid://qpl8dcagwouc"]
 
 [ext_resource type="PackedScene" uid="uid://b4k0gmi0kq2da" path="res://scenes/game_objects/enemies/basic_enemy.tscn" id="1_t2vxv"]
 [ext_resource type="Shader" path="res://resources/flash_shader.gdshader" id="2_r2l8i"]
 [ext_resource type="Texture2D" uid="uid://bnxyv8ol886eh" path="res://assets/green_enemy.png" id="2_tdedi"]
-[ext_resource type="Texture2D" uid="uid://i80o8m0wyfh8" path="res://assets/explosion.png" id="3_p5w57"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tjlyx"]
 resource_local_to_scene = true
@@ -35,26 +34,6 @@ region = Rect2(16, 0, 16, 16)
 atlas = ExtResource("2_tdedi")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b1aly"]
-atlas = ExtResource("3_p5w57")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tm0d4"]
-atlas = ExtResource("3_p5w57")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jhvmt"]
-atlas = ExtResource("3_p5w57")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e5uu6"]
-atlas = ExtResource("3_p5w57")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ruq64"]
-atlas = ExtResource("3_p5w57")
-region = Rect2(64, 0, 16, 16)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_yimgd"]
 animations = [{
 "frames": [{
@@ -80,21 +59,6 @@ animations = [{
 }, {
 "duration": 2.0,
 "texture": SubResource("AtlasTexture_66a3m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b1aly")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tm0d4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jhvmt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e5uu6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ruq64")
 }],
 "loop": false,
 "name": &"die",
@@ -111,6 +75,7 @@ radius = 6.0
 [node name="AnimatedSprite2D" parent="." index="6"]
 material = SubResource("ShaderMaterial_tjlyx")
 sprite_frames = SubResource("SpriteFrames_yimgd")
+animation = &"die"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
