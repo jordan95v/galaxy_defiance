@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/game_objects/ship/ship.gd" id="1_5ip12"]
 [ext_resource type="Texture2D" uid="uid://dr4iaxw4epat1" path="res://assets/player_ship.png" id="1_utur1"]
-[ext_resource type="Material" uid="uid://ctvdkbwqfq3nk" path="res://resources/flash_material.tres" id="2_7jq2b"]
+[ext_resource type="Material" uid="uid://ctvdkbwqfq3nk" path="res://resources/effects/flash_material.tres" id="2_7jq2b"]
 [ext_resource type="PackedScene" uid="uid://bgmj6gucsi01l" path="res://scenes/components/move_component/move_component.tscn" id="2_afxwq"]
 [ext_resource type="PackedScene" uid="uid://d2mchr7l2okv3" path="res://scenes/components/move_input_component/move_input_component.tscn" id="4_6exiq"]
 [ext_resource type="Script" path="res://resources/move_stats.gd" id="6_1ga4o"]
@@ -197,6 +197,7 @@ target_scale = Vector2(1.2, 1.2)
 duration = 0.4
 
 [node name="HealthComponent" parent="." instance=ExtResource("13_udl5r")]
+health = 1
 
 [node name="ShakeComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("16_1ut3p")]
 sprite = NodePath("../Visuals/AnimatedSprite2D")

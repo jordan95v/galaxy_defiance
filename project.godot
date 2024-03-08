@@ -15,6 +15,10 @@ config/tags=PackedStringArray("2d", "space_shooter")
 run/main_scene="res://scenes/ui/menu/menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 
+[autoload]
+
+GameEvents="*res://scenes/autoload/game_events.gd"
+
 [display]
 
 window/size/viewport_width=160

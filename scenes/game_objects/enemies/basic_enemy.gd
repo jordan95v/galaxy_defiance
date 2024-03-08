@@ -11,9 +11,11 @@ extends Node2D
 @onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 @onready var hitbox_component: HitboxComponent = $HitboxComponent
 @onready var destroyed_component: DestroyedComponent = $DestroyedComponent
+@export var points: int = 5
 
 
 func _ready() -> void:
+	health_component.no_health.connect(on_no_health)
 	visible_on_screen_notifier_2d.screen_exited.connect(queue_free)
 	hurtbox_component.hurt.connect(on_hurt)
 	
@@ -22,3 +24,7 @@ func on_hurt() -> void:
 	scale_component.tween_scale()
 	shake_component.apply_random_shake()
 	animation_player.play("flash")
+
+
+func on_no_health() -> void:
+	GameEvents.enemy_killed.emit(points)

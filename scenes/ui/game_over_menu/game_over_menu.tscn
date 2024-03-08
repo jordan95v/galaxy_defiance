@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/ui/game_over_menu/game_over_menu.gd" id="1_cn5nt"]
 [ext_resource type="FontFile" uid="uid://d4l8ftvhdjw1d" path="res://assets/BitPotion.ttf" id="1_o0x7y"]
-[ext_resource type="LabelSettings" uid="uid://c727recbjvjo4" path="res://resources/bit_potion_normal_text.tres" id="3_36h0b"]
+[ext_resource type="LabelSettings" uid="uid://c727recbjvjo4" path="res://resources/ui/bit_potion_normal_text.tres" id="3_36h0b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8d5m4"]
 font = ExtResource("1_o0x7y")

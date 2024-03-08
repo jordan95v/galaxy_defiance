@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dsyctubsc3j1h" path="res://scenes/components/scale_component/scale_component.tscn" id="3_f30gn"]
 [ext_resource type="PackedScene" uid="uid://bgmj6gucsi01l" path="res://scenes/components/move_component/move_component.tscn" id="4_2fku0"]
 [ext_resource type="PackedScene" uid="uid://calacfe7abcrh" path="res://scenes/components/health_component/health_component.tscn" id="5_1olh2"]
-[ext_resource type="Material" uid="uid://ctvdkbwqfq3nk" path="res://resources/flash_material.tres" id="6_67cva"]
+[ext_resource type="Material" uid="uid://ctvdkbwqfq3nk" path="res://resources/effects/flash_material.tres" id="6_67cva"]
 [ext_resource type="PackedScene" uid="uid://loqivrm0drtr" path="res://scenes/components/destroyed_component/destroyed_component.tscn" id="6_o3p3s"]
 [ext_resource type="PackedScene" uid="uid://b0ohk2o5l0lcp" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="7_r7j5w"]
 [ext_resource type="PackedScene" uid="uid://c5hw2nvofyp0w" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="8_53it0"]

@@ -1,13 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxiveaxttj6vb"]
+[gd_scene load_steps=9 format=3 uid="uid://cxiveaxttj6vb"]
 
 [ext_resource type="PackedScene" uid="uid://2v522uaf6evr" path="res://scenes/game_objects/ship/ship.tscn" id="1_uolv7"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_vbwxv"]
-[ext_resource type="PackedScene" uid="uid://ckg8m0k737l3a" path="res://scenes/ui/space_background.tscn" id="1_wh50s"]
+[ext_resource type="PackedScene" uid="uid://ckg8m0k737l3a" path="res://scenes/ui/space_background/space_background.tscn" id="1_wh50s"]
 [ext_resource type="PackedScene" uid="uid://6okjpf8xs4hc" path="res://scenes/ui/game_over_menu/game_over_menu.tscn" id="2_7s5fa"]
+[ext_resource type="Script" path="res://resources/game_stats.gd" id="2_fiuyy"]
 [ext_resource type="PackedScene" uid="uid://digchsganjtu" path="res://scenes/managers/enemy_manager/enemy_manager.tscn" id="2_hf1x8"]
+[ext_resource type="PackedScene" uid="uid://btkw6h1cx5ce" path="res://scenes/ui/score_ui/score_ui.tscn" id="7_e5xst"]
+
+[sub_resource type="Resource" id="Resource_f1uc6"]
+script = ExtResource("2_fiuyy")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_vbwxv")
+game_stats = SubResource("Resource_f1uc6")
 game_over_menu_scene = ExtResource("2_7s5fa")
 
 [node name="SpaceBackground" parent="." instance=ExtResource("1_wh50s")]
@@ -18,3 +24,5 @@ game_over_menu_scene = ExtResource("2_7s5fa")
 
 [node name="Ship" parent="Entities" instance=ExtResource("1_uolv7")]
 position = Vector2(80, 220)
+
+[node name="ScoreUI" parent="." instance=ExtResource("7_e5xst")]

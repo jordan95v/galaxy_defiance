@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://btkw6h1cx5ce"]
+
+[ext_resource type="LabelSettings" uid="uid://c727recbjvjo4" path="res://resources/ui/bit_potion_normal_text.tres" id="1_7ltpb"]
+[ext_resource type="Script" path="res://scenes/ui/score_ui/score_ui.gd" id="1_vh2qn"]
+
+[node name="ScoreUI" type="CanvasLayer"]
+script = ExtResource("1_vh2qn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "SCORE: 0"
+label_settings = ExtResource("1_7ltpb")

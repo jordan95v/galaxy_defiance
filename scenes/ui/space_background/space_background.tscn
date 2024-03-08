@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ckg8m0k737l3a"]
 
-[ext_resource type="Script" path="res://scenes/ui/space_background.gd" id="1_kw7e0"]
+[ext_resource type="Script" path="res://scenes/ui/space_background/space_background.gd" id="1_kw7e0"]
 [ext_resource type="Texture2D" uid="uid://e8pbcb1q4acv" path="res://assets/space_parralax/parallax-space-backgound.png" id="2_7vum8"]
 [ext_resource type="Texture2D" uid="uid://d4kqyuian3fg4" path="res://assets/space_parralax/parallax-space-far-planets.png" id="3_hg3em"]
 [ext_resource type="Texture2D" uid="uid://v8yc53dmyhf6" path="res://assets/space_parralax/parallax-space-stars.png" id="3_v34c8"]
