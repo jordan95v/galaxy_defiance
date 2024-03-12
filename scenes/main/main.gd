@@ -1,18 +1,17 @@
 extends Node2D
 
-@export var game_stats: GameStats
 @export var game_over_menu_scene: PackedScene
 @onready var ship: Ship = $Entities/Ship
 
 
 func _ready() -> void:
-	game_stats.score = 0
-	ship.tree_exited.connect(on_ship_died)
+	ResourcesHandler.game_stats.score = 0
 	GameEvents.enemy_killed.connect(on_enemy_killed)
+	ship.tree_exited.connect(on_ship_died)
 	
 	
 func on_enemy_killed(points: int) -> void:
-	game_stats.increment_score(points)
+	ResourcesHandler.game_stats.increment_score(points)
 
 
 func on_ship_died() -> void:

@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.2", "Mobile")
 [autoload]
 
 GameEvents="*res://scenes/autoload/game_events.gd"
+ResourcesHandler="*res://scenes/autoload/resources_handler.gd"
 
 [display]
 

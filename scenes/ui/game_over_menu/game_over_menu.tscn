@@ -1,8 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://6okjpf8xs4hc"]
+[gd_scene load_steps=6 format=3 uid="uid://6okjpf8xs4hc"]
 
 [ext_resource type="Script" path="res://scenes/ui/game_over_menu/game_over_menu.gd" id="1_cn5nt"]
 [ext_resource type="FontFile" uid="uid://d4l8ftvhdjw1d" path="res://assets/BitPotion.ttf" id="1_o0x7y"]
 [ext_resource type="LabelSettings" uid="uid://c727recbjvjo4" path="res://resources/ui/bit_potion_normal_text.tres" id="3_36h0b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_actub"]
+bg_color = Color(0.772549, 0.494118, 0.364706, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_8d5m4"]
 font = ExtResource("1_o0x7y")
@@ -22,18 +33,57 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_actub")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="GameLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="GameLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "YOU HAVE LOST"
 label_settings = SubResource("LabelSettings_8d5m4")
 horizontal_alignment = 1
 
-[node name="HintLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="ScoreContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ScoreContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Score"
+label_settings = ExtResource("3_36h0b")
+
+[node name="ScoreValueLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/ScoreContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_36h0b")
+
+[node name="HighscoreContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HighscoreLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HighscoreContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Highscore"
+label_settings = ExtResource("3_36h0b")
+
+[node name="HighscoreValueLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HighscoreContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_36h0b")
+
+[node name="Space" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HintLabel" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "PRESS 'SPACE' TO RETURN TO 
