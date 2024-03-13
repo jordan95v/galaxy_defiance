@@ -1,14 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://digchsganjtu"]
+[gd_scene load_steps=5 format=3 uid="uid://digchsganjtu"]
 
 [ext_resource type="Script" path="res://scenes/managers/enemy_manager/enemy_manager.gd" id="1_gy5et"]
 [ext_resource type="PackedScene" uid="uid://chfqqnuajer2b" path="res://scenes/components/spawn_component/spawn_component.tscn" id="2_ijtny"]
+[ext_resource type="PackedScene" uid="uid://dhka7myj6255w" path="res://scenes/game_objects/enemies/yellow_enemy.tscn" id="3_kqdb0"]
 [ext_resource type="PackedScene" uid="uid://qpl8dcagwouc" path="res://scenes/game_objects/enemies/green_enemy.tscn" id="3_rcwjl"]
 
 [node name="EnemyManager" type="Node"]
 script = ExtResource("1_gy5et")
 green_enemy_scene = ExtResource("3_rcwjl")
+yellow_enemy_scene = ExtResource("3_kqdb0")
 
 [node name="GreenEnemyTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="YellowEnemyTimer" type="Timer" parent="."]
+wait_time = 3.0
 autostart = true
 
 [node name="SpawnComponent" parent="." instance=ExtResource("2_ijtny")]

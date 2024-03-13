@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://dhka7myj6255w"]
+
+[ext_resource type="PackedScene" uid="uid://b4k0gmi0kq2da" path="res://scenes/game_objects/enemies/basic_enemy.tscn" id="1_2w1av"]
+[ext_resource type="Script" path="res://scenes/game_objects/enemies/yellow_enemy.gd" id="2_2mm4w"]
+[ext_resource type="Shader" path="res://resources/effects/flash_shader.gdshader" id="2_ylywx"]
+[ext_resource type="PackedScene" uid="uid://brnaxmyooa7wh" path="res://scenes/components/bounce_border_component/bounce_border_component.tscn" id="3_2yylr"]
+[ext_resource type="Texture2D" uid="uid://c0jr1pbmwrp68" path="res://assets/yellow_enemy.png" id="3_aey7k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qurav"]
+resource_local_to_scene = true
+shader = ExtResource("2_ylywx")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_pourcentage = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpo35"]
+atlas = ExtResource("3_aey7k")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgbru"]
+atlas = ExtResource("3_aey7k")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_moogu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpo35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgbru")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mr8ms"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2o0tq"]
+radius = 5.0
+
+[node name="YellowEnemy" instance=ExtResource("1_2w1av")]
+script = ExtResource("2_2mm4w")
+points = 10
+
+[node name="MoveComponent" parent="." index="3"]
+velocity = Vector2(0, 20)
+
+[node name="HealthComponent" parent="." index="4"]
+health = 10
+
+[node name="BounceBorderComponent" parent="." index="6" node_paths=PackedStringArray("actor", "move_component") instance=ExtResource("3_2yylr")]
+actor = NodePath("..")
+move_component = NodePath("../MoveComponent")
+
+[node name="AnimatedSprite2D" parent="." index="8"]
+material = SubResource("ShaderMaterial_qurav")
+sprite_frames = SubResource("SpriteFrames_moogu")
+autoplay = "default"
+frame_progress = 0.377092
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("CircleShape2D_mr8ms")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_2o0tq")
