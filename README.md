@@ -10,3 +10,7 @@ FIrst of all, if you want to follow the same tutorial, here is the link to the t
 # Work in progress
 
 This is a work in progress project. I am following a tutorial to create a game using Godot Engine. I will be updating this README file as I progress through the tutorial.
+
+<h1>Thanks for reading / playing Galaxy Defiance</h1>
+
+<img src="https://media1.tenor.com/m/StizpFIpppQAAAAd/goodbye-bye.gif" width="100%">
