@@ -1,0 +1,93 @@
+[gd_scene load_steps=15 format=3 uid="uid://bo2moqur4j3r4"]
+
+[ext_resource type="PackedScene" uid="uid://b4k0gmi0kq2da" path="res://scenes/game_objects/enemies/basic_enemy.tscn" id="1_spoid"]
+[ext_resource type="Script" path="res://scenes/game_objects/enemies/pink_enemy/pink_enemy.gd" id="2_isgq2"]
+[ext_resource type="PackedScene" uid="uid://brnaxmyooa7wh" path="res://scenes/components/bounce_border_component/bounce_border_component.tscn" id="3_klxw1"]
+[ext_resource type="Shader" path="res://resources/effects/flash_shader.gdshader" id="3_nfybv"]
+[ext_resource type="Texture2D" uid="uid://dpg5um6frvlbm" path="res://assets/pink_enemy.png" id="4_nsbx8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tv6ke"]
+resource_local_to_scene = true
+shader = ExtResource("3_nfybv")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_pourcentage = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0feg"]
+atlas = ExtResource("4_nsbx8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i027u"]
+atlas = ExtResource("4_nsbx8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wto5r"]
+atlas = ExtResource("4_nsbx8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hyl4"]
+atlas = ExtResource("4_nsbx8")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7osg3"]
+atlas = ExtResource("4_nsbx8")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_57t0g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0feg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i027u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wto5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hyl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7osg3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i6vhk"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ov28v"]
+radius = 5.0
+
+[node name="PinkEnemy" instance=ExtResource("1_spoid")]
+script = ExtResource("2_isgq2")
+speed = 10
+points = 15
+
+[node name="MoveComponent" parent="." index="3"]
+velocity = Vector2(0, 15)
+
+[node name="HealthComponent" parent="." index="4"]
+health = 15
+
+[node name="BounceBorderComponent" parent="." index="6" node_paths=PackedStringArray("actor", "move_component") instance=ExtResource("3_klxw1")]
+actor = NodePath("..")
+move_component = NodePath("../MoveComponent")
+
+[node name="AnimatedSprite2D" parent="." index="8"]
+material = SubResource("ShaderMaterial_tv6ke")
+sprite_frames = SubResource("SpriteFrames_57t0g")
+autoplay = "default"
+frame_progress = 0.755134
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("CircleShape2D_i6vhk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_ov28v")
+
+[node name="StateTimer" type="Timer" parent="." index="11"]
+wait_time = 2.0
+autostart = true

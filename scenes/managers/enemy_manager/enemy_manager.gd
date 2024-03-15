@@ -5,14 +5,17 @@ extends Node
 @onready var spawn_component: SpawnComponent = $SpawnComponent
 @onready var green_enemy_timer: Timer = $GreenEnemyTimer
 @onready var yellow_enemy_timer: Timer = $YellowEnemyTimer
+@onready var pink_enemy_timer: Timer = $PinkEnemyTimer
 @export var green_enemy_scene: PackedScene
 @export var yellow_enemy_scene: PackedScene
+@export var pink_enemy_scene: PackedScene
 @export var margin: float = 10
 
 
 func _ready() -> void:
 	green_enemy_timer.timeout.connect(spawn_enemy.bind(green_enemy_scene))
 	yellow_enemy_timer.timeout.connect(spawn_enemy.bind(yellow_enemy_scene))
+	pink_enemy_timer.timeout.connect(spawn_enemy.bind(pink_enemy_scene))
 
 
 func spawn_enemy(scene: PackedScene) -> void:

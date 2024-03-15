@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dhka7myj6255w"]
 
 [ext_resource type="PackedScene" uid="uid://b4k0gmi0kq2da" path="res://scenes/game_objects/enemies/basic_enemy.tscn" id="1_2w1av"]
-[ext_resource type="Script" path="res://scenes/game_objects/enemies/yellow_enemy.gd" id="2_2mm4w"]
+[ext_resource type="Script" path="res://scenes/game_objects/enemies/yellow_enemy/yellow_enemy.gd" id="2_2mm4w"]
 [ext_resource type="Shader" path="res://resources/effects/flash_shader.gdshader" id="2_ylywx"]
 [ext_resource type="PackedScene" uid="uid://brnaxmyooa7wh" path="res://scenes/components/bounce_border_component/bounce_border_component.tscn" id="3_2yylr"]
 [ext_resource type="Texture2D" uid="uid://c0jr1pbmwrp68" path="res://assets/yellow_enemy.png" id="3_aey7k"]
@@ -35,6 +35,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mr8ms"]
+radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2o0tq"]
 radius = 5.0
