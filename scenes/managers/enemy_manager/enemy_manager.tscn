@@ -13,14 +13,15 @@ yellow_enemy_scene = ExtResource("3_kqdb0")
 pink_enemy_scene = ExtResource("4_mm1sx")
 
 [node name="GreenEnemyTimer" type="Timer" parent="."]
+wait_time = 1.5
 autostart = true
 
 [node name="YellowEnemyTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 6.0
 autostart = true
 
 [node name="PinkEnemyTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 9.0
 autostart = true
 
 [node name="SpawnComponent" parent="." instance=ExtResource("2_ijtny")]

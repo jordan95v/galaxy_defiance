@@ -72,7 +72,7 @@ points = 15
 velocity = Vector2(0, 15)
 
 [node name="HealthComponent" parent="." index="4"]
-health = 15
+health = 8
 
 [node name="BounceBorderComponent" parent="." index="6" node_paths=PackedStringArray("actor", "move_component") instance=ExtResource("3_klxw1")]
 actor = NodePath("..")
@@ -82,7 +82,7 @@ move_component = NodePath("../MoveComponent")
 scene = ExtResource("7_7ia8u")
 
 [node name="StateTimer" type="Timer" parent="." index="9"]
-wait_time = 2.0
+wait_time = 4.0
 autostart = true
 
 [node name="FireRateTimer" type="Timer" parent="." index="10"]

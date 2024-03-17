@@ -31,7 +31,7 @@ animations = [{
 [node name="EnemyShot" instance=ExtResource("1_l7o22")]
 
 [node name="MoveComponent" parent="." index="0"]
-velocity = Vector2(0, 5)
+velocity = Vector2(0, 75)
 
 [node name="ScaleComponent" parent="." index="1"]
 target_scale = Vector2(1.5, 1.5)
@@ -43,6 +43,7 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_y3yib")
 
 [node name="AnimatedSprite2D" parent="." index="4"]
+scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_tdjga")
 autoplay = "default"
-frame_progress = 0.986852
+frame_progress = 0.198504
