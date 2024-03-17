@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwmxi525a7007"]
+
+[ext_resource type="Script" path="res://scenes/game_objects/projectiles/basic_projectile.gd" id="1_1oljy"]
+[ext_resource type="PackedScene" uid="uid://bgmj6gucsi01l" path="res://scenes/components/move_component/move_component.tscn" id="1_bml1n"]
+[ext_resource type="PackedScene" uid="uid://dsyctubsc3j1h" path="res://scenes/components/scale_component/scale_component.tscn" id="2_3fvpy"]
+[ext_resource type="PackedScene" uid="uid://c5hw2nvofyp0w" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="3_0omo2"]
+
+[node name="BasicProjectile" type="Node2D"]
+script = ExtResource("1_1oljy")
+
+[node name="MoveComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("1_bml1n")]
+actor = NodePath("..")
+
+[node name="ScaleComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("2_3fvpy")]
+actor = NodePath("..")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_0omo2")]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

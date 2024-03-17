@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://resources/move_stats.gd" id="6_1ga4o"]
 [ext_resource type="PackedScene" uid="uid://cwaek2bpgie8f" path="res://scenes/components/clamp_component/clamp_component.tscn" id="7_o3vtl"]
 [ext_resource type="PackedScene" uid="uid://chfqqnuajer2b" path="res://scenes/components/spawn_component/spawn_component.tscn" id="8_gc4gi"]
-[ext_resource type="PackedScene" uid="uid://di0ym8fde547n" path="res://scenes/game_objects/projectiles/laser/laser.tscn" id="11_fsw4u"]
+[ext_resource type="PackedScene" uid="uid://104dlwmf5517" path="res://scenes/game_objects/projectiles/laser.tscn" id="11_fsw4u"]
 [ext_resource type="PackedScene" uid="uid://b0ohk2o5l0lcp" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="13_3lhtk"]
 [ext_resource type="PackedScene" uid="uid://dsyctubsc3j1h" path="res://scenes/components/scale_component/scale_component.tscn" id="13_dtyi0"]
 [ext_resource type="PackedScene" uid="uid://calacfe7abcrh" path="res://scenes/components/health_component/health_component.tscn" id="13_udl5r"]

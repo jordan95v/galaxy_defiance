@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://104dlwmf5517"]
+
+[ext_resource type="PackedScene" uid="uid://cwmxi525a7007" path="res://scenes/game_objects/projectiles/basic_projectile.tscn" id="1_gov8c"]
+[ext_resource type="Texture2D" uid="uid://bnilwl2sp1lsa" path="res://assets/laser_beam.png" id="2_aa8lb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_caj8r"]
+size = Vector2(8, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62p1t"]
+atlas = ExtResource("2_aa8lb")
+region = Rect2(0, 0, 8, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ot7om"]
+atlas = ExtResource("2_aa8lb")
+region = Rect2(16, 0, 8, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8hxlc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62p1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ot7om")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Laser" instance=ExtResource("1_gov8c")]
+
+[node name="MoveComponent" parent="." index="0"]
+velocity = Vector2(0, -200)
+
+[node name="ScaleComponent" parent="." index="1"]
+target_scale = Vector2(1.5, 1.5)
+
+[node name="HitboxComponent" parent="." index="2"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("RectangleShape2D_caj8r")
+
+[node name="AnimatedSprite2D" parent="." index="4"]
+sprite_frames = SubResource("SpriteFrames_8hxlc")
+autoplay = "default"
+frame_progress = 0.892727

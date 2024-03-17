@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var game_over_menu_scene: PackedScene
-@onready var ship: Ship = $Entities/Ship
+@onready var ship: Ship = $Ship
 
 
 func _ready() -> void:

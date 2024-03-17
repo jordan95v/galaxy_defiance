@@ -15,6 +15,6 @@ func on_area_entered(other_area: Area2D) -> void:
 	var area: HitboxComponent = other_area as HitboxComponent
 	health_component.take_damage(area.damage)
 	hurt.emit()
-	if area.owner is Laser:
+	if area.owner is Projectile:
 		area.owner.queue_free()
 	
