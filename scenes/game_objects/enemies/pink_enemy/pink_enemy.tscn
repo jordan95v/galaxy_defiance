@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://bo2moqur4j3r4"]
+[gd_scene load_steps=17 format=3 uid="uid://bo2moqur4j3r4"]
 
 [ext_resource type="PackedScene" uid="uid://b4k0gmi0kq2da" path="res://scenes/game_objects/enemies/basic_enemy.tscn" id="1_spoid"]
 [ext_resource type="Script" path="res://scenes/game_objects/enemies/pink_enemy/pink_enemy.gd" id="2_isgq2"]
 [ext_resource type="PackedScene" uid="uid://brnaxmyooa7wh" path="res://scenes/components/bounce_border_component/bounce_border_component.tscn" id="3_klxw1"]
 [ext_resource type="Shader" path="res://resources/effects/flash_shader.gdshader" id="3_nfybv"]
 [ext_resource type="Texture2D" uid="uid://dpg5um6frvlbm" path="res://assets/pink_enemy.png" id="4_nsbx8"]
+[ext_resource type="PackedScene" uid="uid://chfqqnuajer2b" path="res://scenes/components/spawn_component/spawn_component.tscn" id="6_1ex6t"]
+[ext_resource type="PackedScene" uid="uid://b62v5cbuuaryf" path="res://scenes/game_objects/projectiles/enemy_shot.tscn" id="7_7ia8u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tv6ke"]
 resource_local_to_scene = true
@@ -76,7 +78,18 @@ health = 15
 actor = NodePath("..")
 move_component = NodePath("../MoveComponent")
 
-[node name="AnimatedSprite2D" parent="." index="8"]
+[node name="SpawnComponent" parent="." index="7" instance=ExtResource("6_1ex6t")]
+scene = ExtResource("7_7ia8u")
+
+[node name="StateTimer" type="Timer" parent="." index="9"]
+wait_time = 2.0
+autostart = true
+
+[node name="FireRateTimer" type="Timer" parent="." index="10"]
+wait_time = 2.0
+autostart = true
+
+[node name="AnimatedSprite2D" parent="." index="11"]
 material = SubResource("ShaderMaterial_tv6ke")
 sprite_frames = SubResource("SpriteFrames_57t0g")
 autoplay = "default"
@@ -88,6 +101,5 @@ shape = SubResource("CircleShape2D_i6vhk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
 shape = SubResource("CircleShape2D_ov28v")
 
-[node name="StateTimer" type="Timer" parent="." index="11"]
-wait_time = 2.0
-autostart = true
+[node name="Marker2D" type="Marker2D" parent="." index="14"]
+position = Vector2(0, 9)

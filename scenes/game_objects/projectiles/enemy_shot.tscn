@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://b62v5cbuuaryf"]
+
+[ext_resource type="PackedScene" uid="uid://cwmxi525a7007" path="res://scenes/game_objects/projectiles/basic_projectile.tscn" id="1_l7o22"]
+[ext_resource type="Texture2D" uid="uid://djj2fuwnitjpj" path="res://assets/enemy_shot.png" id="2_gsjw7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y3yib"]
+radius = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53trs"]
+atlas = ExtResource("2_gsjw7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5sbe"]
+atlas = ExtResource("2_gsjw7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tdjga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53trs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5sbe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EnemyShot" instance=ExtResource("1_l7o22")]
+
+[node name="MoveComponent" parent="." index="0"]
+velocity = Vector2(0, 5)
+
+[node name="ScaleComponent" parent="." index="1"]
+target_scale = Vector2(1.5, 1.5)
+
+[node name="HitboxComponent" parent="." index="2"]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_y3yib")
+
+[node name="AnimatedSprite2D" parent="." index="4"]
+sprite_frames = SubResource("SpriteFrames_tdjga")
+autoplay = "default"
+frame_progress = 0.986852

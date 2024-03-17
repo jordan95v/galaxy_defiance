@@ -3,12 +3,20 @@ extends BasicEnemy
 enum State {GOING_DOWN, GOING_SIDE}
 var state: State = State.GOING_DOWN
 @onready var state_timer: Timer = $StateTimer
+@onready var fire_rate_timer: Timer = $FireRateTimer
+@onready var spawn_component: SpawnComponent = $SpawnComponent
+@onready var marker_2d: Marker2D = $Marker2D
 @export var speed: int = 15
 
 
 func _ready() -> void:
 	super()
 	state_timer.timeout.connect(on_state_timer_timeout)
+	fire_rate_timer.timeout.connect(on_fire_rate_timer_timeout)
+	
+
+func on_fire_rate_timer_timeout() -> void:
+	spawn_component.spawn(marker_2d.global_position)
 	
 
 func on_state_timer_timeout() -> void:
