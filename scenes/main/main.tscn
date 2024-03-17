@@ -13,11 +13,13 @@ game_over_menu_scene = ExtResource("2_7s5fa")
 
 [node name="SpaceBackground" parent="." instance=ExtResource("1_wh50s")]
 
+[node name="ScoreUI" parent="." instance=ExtResource("7_e5xst")]
+
 [node name="EnemyManager" parent="." instance=ExtResource("2_hf1x8")]
 
 [node name="Entities" type="Node2D" parent="." groups=["entities"]]
 
+[node name="Projectiles" type="Node2D" parent="." groups=["projectiles"]]
+
 [node name="Ship" parent="." instance=ExtResource("1_uolv7")]
 position = Vector2(80, 220)
-
-[node name="ScoreUI" parent="." instance=ExtResource("7_e5xst")]

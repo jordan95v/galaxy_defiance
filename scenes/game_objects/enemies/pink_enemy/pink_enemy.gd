@@ -6,11 +6,14 @@ var state: State = State.GOING_DOWN
 @onready var fire_rate_timer: Timer = $FireRateTimer
 @onready var spawn_component: SpawnComponent = $SpawnComponent
 @onready var marker_2d: Marker2D = $Marker2D
-@export var speed: int = 15
+@export var speed: int = 10
+
+@export var projectiles: Array[PackedScene]
 
 
 func _ready() -> void:
 	super()
+	spawn_component.scene = projectiles.pick_random()
 	state_timer.timeout.connect(on_state_timer_timeout)
 	fire_rate_timer.timeout.connect(on_fire_rate_timer_timeout)
 	

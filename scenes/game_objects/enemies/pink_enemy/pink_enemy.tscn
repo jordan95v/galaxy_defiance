@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://bo2moqur4j3r4"]
+[gd_scene load_steps=18 format=3 uid="uid://bo2moqur4j3r4"]
 
 [ext_resource type="PackedScene" uid="uid://b4k0gmi0kq2da" path="res://scenes/game_objects/enemies/basic_enemy.tscn" id="1_spoid"]
 [ext_resource type="Script" path="res://scenes/game_objects/enemies/pink_enemy/pink_enemy.gd" id="2_isgq2"]
 [ext_resource type="PackedScene" uid="uid://brnaxmyooa7wh" path="res://scenes/components/bounce_border_component/bounce_border_component.tscn" id="3_klxw1"]
 [ext_resource type="Shader" path="res://resources/effects/flash_shader.gdshader" id="3_nfybv"]
 [ext_resource type="Texture2D" uid="uid://dpg5um6frvlbm" path="res://assets/pink_enemy.png" id="4_nsbx8"]
+[ext_resource type="PackedScene" uid="uid://cd5ij4yrfiog5" path="res://scenes/game_objects/projectiles/enemy_shot_exploding.tscn" id="5_q87f3"]
 [ext_resource type="PackedScene" uid="uid://chfqqnuajer2b" path="res://scenes/components/spawn_component/spawn_component.tscn" id="6_1ex6t"]
 [ext_resource type="PackedScene" uid="uid://b62v5cbuuaryf" path="res://scenes/game_objects/projectiles/enemy_shot.tscn" id="7_7ia8u"]
 
@@ -66,6 +67,7 @@ radius = 5.0
 [node name="PinkEnemy" instance=ExtResource("1_spoid")]
 script = ExtResource("2_isgq2")
 speed = 10
+projectiles = Array[PackedScene]([ExtResource("7_7ia8u"), ExtResource("5_q87f3")])
 points = 15
 
 [node name="MoveComponent" parent="." index="3"]
@@ -79,7 +81,7 @@ actor = NodePath("..")
 move_component = NodePath("../MoveComponent")
 
 [node name="SpawnComponent" parent="." index="7" instance=ExtResource("6_1ex6t")]
-scene = ExtResource("7_7ia8u")
+scene = ExtResource("5_q87f3")
 
 [node name="StateTimer" type="Timer" parent="." index="9"]
 wait_time = 4.0

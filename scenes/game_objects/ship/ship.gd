@@ -43,8 +43,11 @@ func animate_ship() -> void:
 	
 
 func on_fire_rate_timer_timeout() -> void:
-	spawn_component.spawn(left_cannon.global_position)
-	spawn_component.spawn(right_cannon.global_position)
+	var projectiles_layer: Node2D = get_tree().get_first_node_in_group("projectiles")
+	if not projectiles_layer:
+		return
+	spawn_component.spawn(left_cannon.global_position, projectiles_layer)
+	spawn_component.spawn(right_cannon.global_position, projectiles_layer)
 	scale_component.tween_scale()
 	
 
