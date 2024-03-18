@@ -22,6 +22,7 @@ signal died
 func _ready() -> void:
 	fire_rate_timer.timeout.connect(on_fire_rate_timer_timeout)
 	hurtbox_component.hurt.connect(on_hurt)
+	GameEvents.enemy_exited_screen.connect(on_enemy_exited_screen)
 	
 	
 func _process(_delta: float) -> void:
@@ -49,6 +50,11 @@ func on_fire_rate_timer_timeout() -> void:
 	spawn_component.spawn(left_cannon.global_position, projectiles_layer)
 	spawn_component.spawn(right_cannon.global_position, projectiles_layer)
 	scale_component.tween_scale()
+	
+	
+func on_enemy_exited_screen(damage: int) -> void:
+	health_component.take_damage(damage)
+	hurtbox_component.hurt.emit()
 	
 
 func on_hurt() -> void:
