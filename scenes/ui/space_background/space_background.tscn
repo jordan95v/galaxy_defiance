@@ -72,3 +72,7 @@ position = Vector2(0, 272)
 rotation = -1.5708
 texture = ExtResource("3_v34c8")
 centered = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
