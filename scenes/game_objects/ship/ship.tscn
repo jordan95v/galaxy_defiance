@@ -197,7 +197,7 @@ target_scale = Vector2(1.2, 1.2)
 duration = 0.4
 
 [node name="HealthComponent" parent="." instance=ExtResource("13_udl5r")]
-health = 1
+health = 3
 
 [node name="ShakeComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("16_1ut3p")]
 sprite = NodePath("../Visuals/AnimatedSprite2D")
