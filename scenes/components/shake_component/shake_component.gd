@@ -16,4 +16,4 @@ func _process(_delta: float) -> void:
 		randf_range(-shake_strength, shake_strength),
 		randf_range(-shake_strength, shake_strength)		
 	)
-	shake_strength = move_toward(shake_strength, 0, 1)
+	shake_strength = move_toward(shake_strength, 0, 0.5)

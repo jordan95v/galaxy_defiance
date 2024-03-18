@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c26xqkd3e6nfo"]
+
+[ext_resource type="Script" path="res://scenes/ui/health_ui/health_ui.gd" id="1_tndl8"]
+[ext_resource type="PackedScene" uid="uid://gjhnt7vam7vh" path="res://scenes/ui/health_ui/player_icon.tscn" id="2_t3fna"]
+
+[node name="HealthUI" type="CanvasLayer"]
+script = ExtResource("1_tndl8")
+player_icon_scene = ExtResource("2_t3fna")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 0

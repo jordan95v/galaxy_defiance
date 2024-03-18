@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://gjhnt7vam7vh"]
+
+[ext_resource type="Texture2D" uid="uid://dteuckgmb3l5y" path="res://assets/player_icon.png" id="1_eb6ri"]
+
+[node name="PlayerIcon" type="TextureRect"]
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("1_eb6ri")
