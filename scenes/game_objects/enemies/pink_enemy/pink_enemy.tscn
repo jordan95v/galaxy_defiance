@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/game_objects/enemies/pink_enemy/pink_enemy.gd" id="2_isgq2"]
 [ext_resource type="PackedScene" uid="uid://brnaxmyooa7wh" path="res://scenes/components/bounce_border_component/bounce_border_component.tscn" id="3_klxw1"]
 [ext_resource type="Shader" path="res://resources/effects/flash_shader.gdshader" id="3_nfybv"]
-[ext_resource type="Texture2D" uid="uid://dpg5um6frvlbm" path="res://assets/pink_enemy.png" id="4_nsbx8"]
+[ext_resource type="Texture2D" uid="uid://dpg5um6frvlbm" path="res://assets/enemies/pink_enemy.png" id="4_nsbx8"]
 [ext_resource type="PackedScene" uid="uid://cd5ij4yrfiog5" path="res://scenes/game_objects/projectiles/enemy_shot_exploding.tscn" id="5_q87f3"]
 [ext_resource type="PackedScene" uid="uid://chfqqnuajer2b" path="res://scenes/components/spawn_component/spawn_component.tscn" id="6_1ex6t"]
 [ext_resource type="PackedScene" uid="uid://b62v5cbuuaryf" path="res://scenes/game_objects/projectiles/enemy_shot.tscn" id="7_7ia8u"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://104dlwmf5517"]
 
 [ext_resource type="PackedScene" uid="uid://cwmxi525a7007" path="res://scenes/game_objects/projectiles/basic_projectile.tscn" id="1_gov8c"]
-[ext_resource type="Texture2D" uid="uid://bnilwl2sp1lsa" path="res://assets/laser_beam.png" id="2_aa8lb"]
+[ext_resource type="Texture2D" uid="uid://bnilwl2sp1lsa" path="res://assets/effects/laser_beam.png" id="2_aa8lb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_caj8r"]
 size = Vector2(8, 16)

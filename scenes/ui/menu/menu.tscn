@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/ui/menu/menu.gd" id="1_qqqie"]
 [ext_resource type="PackedScene" uid="uid://ckg8m0k737l3a" path="res://scenes/ui/space_background/space_background.tscn" id="2_1pv4n"]
-[ext_resource type="FontFile" uid="uid://d4l8ftvhdjw1d" path="res://assets/BitPotion.ttf" id="3_liu24"]
+[ext_resource type="FontFile" uid="uid://d4l8ftvhdjw1d" path="res://assets/bit_potion.ttf" id="3_liu24"]
 [ext_resource type="LabelSettings" uid="uid://c727recbjvjo4" path="res://resources/ui/bit_potion_normal_text.tres" id="4_2qbbr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3cmek"]

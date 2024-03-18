@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://d4l8ftvhdjw1d"
-path="res://.godot/imported/BitPotion.ttf-133e22baa17152557876072a28dc4fce.fontdata"
+path="res://.godot/imported/bit_potion.ttf-2a6213350a77a0ec2ac50b9adaf7d2e4.fontdata"
 
 [deps]
 
-source_file="res://assets/BitPotion.ttf"
-dest_files=["res://.godot/imported/BitPotion.ttf-133e22baa17152557876072a28dc4fce.fontdata"]
+source_file="res://assets/bit_potion.ttf"
+dest_files=["res://.godot/imported/bit_potion.ttf-2a6213350a77a0ec2ac50b9adaf7d2e4.fontdata"]
 
 [params]
 

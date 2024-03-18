@@ -1,7 +1,7 @@
 [gd_scene load_steps=35 format=3 uid="uid://2v522uaf6evr"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/ship/ship.gd" id="1_5ip12"]
-[ext_resource type="Texture2D" uid="uid://dr4iaxw4epat1" path="res://assets/player_ship.png" id="1_utur1"]
+[ext_resource type="Texture2D" uid="uid://dr4iaxw4epat1" path="res://assets/ship/player_ship.png" id="1_utur1"]
 [ext_resource type="Material" uid="uid://ctvdkbwqfq3nk" path="res://resources/effects/flash_material.tres" id="2_7jq2b"]
 [ext_resource type="PackedScene" uid="uid://bgmj6gucsi01l" path="res://scenes/components/move_component/move_component.tscn" id="2_afxwq"]
 [ext_resource type="PackedScene" uid="uid://c26xqkd3e6nfo" path="res://scenes/ui/health_ui/health_ui.tscn" id="2_on5q2"]
@@ -192,6 +192,8 @@ health = 3
 
 [node name="ShakeComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("16_1ut3p")]
 sprite = NodePath("../Visuals/AnimatedSprite2D")
+min_shake_strength = 5
+max_shake_strength = 8
 
 [node name="DestroyedComponent" parent="." node_paths=PackedStringArray("actor", "health_component") instance=ExtResource("16_cmgkx")]
 actor = NodePath("..")

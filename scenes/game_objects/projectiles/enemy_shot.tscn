@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b62v5cbuuaryf"]
 
 [ext_resource type="PackedScene" uid="uid://cwmxi525a7007" path="res://scenes/game_objects/projectiles/basic_projectile.tscn" id="1_l7o22"]
-[ext_resource type="Texture2D" uid="uid://djj2fuwnitjpj" path="res://assets/enemy_shot.png" id="2_gsjw7"]
+[ext_resource type="Texture2D" uid="uid://djj2fuwnitjpj" path="res://assets/effects/enemy_shot.png" id="2_gsjw7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y3yib"]
 radius = 5.0

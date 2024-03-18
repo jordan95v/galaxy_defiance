@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnilwl2sp1lsa"
-path="res://.godot/imported/laser_beam.png-80e98238cfe5852ba9edcf3db590d7a2.ctex"
+uid="uid://djj2fuwnitjpj"
+path="res://.godot/imported/enemy_shot.png-d6f5bcf1451c45d6d4385d725c9fc039.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/laser_beam.png"
-dest_files=["res://.godot/imported/laser_beam.png-80e98238cfe5852ba9edcf3db590d7a2.ctex"]
+source_file="res://assets/effects/enemy_shot.png"
+dest_files=["res://.godot/imported/enemy_shot.png-d6f5bcf1451c45d6d4385d725c9fc039.ctex"]
 
 [params]
 

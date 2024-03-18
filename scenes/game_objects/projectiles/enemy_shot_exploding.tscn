@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cd5ij4yrfiog5"]
 
 [ext_resource type="PackedScene" uid="uid://cwmxi525a7007" path="res://scenes/game_objects/projectiles/basic_projectile.tscn" id="1_nxttr"]
-[ext_resource type="Texture2D" uid="uid://djj2fuwnitjpj" path="res://assets/enemy_shot.png" id="2_7oxnc"]
+[ext_resource type="Texture2D" uid="uid://djj2fuwnitjpj" path="res://assets/effects/enemy_shot.png" id="2_7oxnc"]
 [ext_resource type="Script" path="res://scenes/game_objects/projectiles/enemy_shot_exploding.gd" id="2_khy82"]
 [ext_resource type="PackedScene" uid="uid://b62v5cbuuaryf" path="res://scenes/game_objects/projectiles/enemy_shot.tscn" id="3_6kjt0"]
 

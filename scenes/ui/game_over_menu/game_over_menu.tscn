@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://6okjpf8xs4hc"]
 
 [ext_resource type="Script" path="res://scenes/ui/game_over_menu/game_over_menu.gd" id="1_cn5nt"]
-[ext_resource type="FontFile" uid="uid://d4l8ftvhdjw1d" path="res://assets/BitPotion.ttf" id="1_o0x7y"]
+[ext_resource type="FontFile" uid="uid://d4l8ftvhdjw1d" path="res://assets/bit_potion.ttf" id="1_o0x7y"]
 [ext_resource type="LabelSettings" uid="uid://c727recbjvjo4" path="res://resources/ui/bit_potion_normal_text.tres" id="3_36h0b"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_actub"]

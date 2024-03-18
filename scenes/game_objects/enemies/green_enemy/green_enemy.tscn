@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b4k0gmi0kq2da" path="res://scenes/game_objects/enemies/basic_enemy.tscn" id="1_t2vxv"]
 [ext_resource type="Shader" path="res://resources/effects/flash_shader.gdshader" id="2_r2l8i"]
-[ext_resource type="Texture2D" uid="uid://bnxyv8ol886eh" path="res://assets/green_enemy.png" id="2_tdedi"]
+[ext_resource type="Texture2D" uid="uid://bnxyv8ol886eh" path="res://assets/enemies/green_enemy.png" id="2_tdedi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tjlyx"]
 resource_local_to_scene = true
