@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cue55ur4fi44f"
-path="res://.godot/imported/boosters.png-400e98986dfae9dc035f03626bb4c178.ctex"
+uid="uid://brmrmhfnukg2e"
+path="res://.godot/imported/sparkle.png-df53b99b6523841a6cb77b6154887672.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/boosters/boosters.png"
-dest_files=["res://.godot/imported/boosters.png-400e98986dfae9dc035f03626bb4c178.ctex"]
+source_file="res://assets/effects/sparkle.png"
+dest_files=["res://.godot/imported/sparkle.png-df53b99b6523841a6cb77b6154887672.ctex"]
 
 [params]
 

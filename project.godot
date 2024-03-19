@@ -60,6 +60,7 @@ echap={
 
 2d_physics/layer_1="PLAYER"
 2d_physics/layer_2="ENEMY"
+2d_physics/layer_3="PLAYER_BONUS"
 
 [rendering]
 

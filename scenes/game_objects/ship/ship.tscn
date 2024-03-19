@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://2v522uaf6evr"]
+[gd_scene load_steps=36 format=3 uid="uid://2v522uaf6evr"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/ship/ship.gd" id="1_5ip12"]
 [ext_resource type="Texture2D" uid="uid://dr4iaxw4epat1" path="res://assets/ship/player_ship.png" id="1_utur1"]
@@ -13,11 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://b0ohk2o5l0lcp" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="13_3lhtk"]
 [ext_resource type="PackedScene" uid="uid://dsyctubsc3j1h" path="res://scenes/components/scale_component/scale_component.tscn" id="13_dtyi0"]
 [ext_resource type="PackedScene" uid="uid://calacfe7abcrh" path="res://scenes/components/health_component/health_component.tscn" id="13_udl5r"]
-[ext_resource type="Texture2D" uid="uid://bhf5tog0s3q1u" path="res://assets/boosters/boosters_left.png" id="15_ef14q"]
-[ext_resource type="Texture2D" uid="uid://cue55ur4fi44f" path="res://assets/boosters/boosters.png" id="15_ki0p5"]
+[ext_resource type="Texture2D" uid="uid://bhf5tog0s3q1u" path="res://assets/ship/boosters_left.png" id="15_ef14q"]
+[ext_resource type="Texture2D" uid="uid://cue55ur4fi44f" path="res://assets/ship/boosters.png" id="15_ki0p5"]
 [ext_resource type="PackedScene" uid="uid://wy0tpiqtlvhq" path="res://scenes/components/shake_component/shake_component.tscn" id="16_1ut3p"]
 [ext_resource type="PackedScene" uid="uid://loqivrm0drtr" path="res://scenes/components/destroyed_component/destroyed_component.tscn" id="16_cmgkx"]
-[ext_resource type="Texture2D" uid="uid://bw5q83sng4swn" path="res://assets/boosters/boosters_right.png" id="16_mx7b4"]
+[ext_resource type="Texture2D" uid="uid://bw5q83sng4swn" path="res://assets/ship/boosters_right.png" id="16_mx7b4"]
 
 [sub_resource type="Resource" id="Resource_ba1fv"]
 script = ExtResource("6_1ga4o")
@@ -162,6 +162,9 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_v4h57"]
+radius = 8.0
+
 [node name="Ship" type="Node2D"]
 script = ExtResource("1_5ip12")
 
@@ -234,3 +237,10 @@ position = Vector2(0, 16)
 sprite_frames = SubResource("SpriteFrames_7k0gn")
 animation = &"bank_right"
 autoplay = "center"
+
+[node name="PickArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickArea"]
+shape = SubResource("CircleShape2D_v4h57")

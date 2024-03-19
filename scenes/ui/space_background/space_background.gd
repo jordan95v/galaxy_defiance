@@ -21,4 +21,4 @@ func _process(delta: float) -> void:
 	
 	
 func on_timer_timeout() -> void:
-	speed = clamp(speed + acceleration, speed, speed * 20)
+	speed = clamp(speed + acceleration, speed, speed * 100)

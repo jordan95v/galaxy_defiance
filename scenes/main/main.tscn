@@ -22,4 +22,4 @@ game_over_menu_scene = ExtResource("2_7s5fa")
 [node name="Projectiles" type="Node2D" parent="." groups=["projectiles"]]
 
 [node name="Ship" parent="." instance=ExtResource("1_uolv7")]
-position = Vector2(80, 220)
+position = Vector2(80, 222)
