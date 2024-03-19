@@ -17,6 +17,7 @@ signal died
 @onready var hurtbox_component: HurtboxComponent = $HurtboxComponent
 @onready var left_cannon: Marker2D = $LeftCannon
 @onready var right_cannon: Marker2D = $RightCannon
+var base_fire_rate_timer_wait_time: float
 
 
 func _ready() -> void:
@@ -24,6 +25,7 @@ func _ready() -> void:
 	hurtbox_component.hurt.connect(on_hurt)
 	GameEvents.enemy_exited_screen.connect(on_enemy_exited_screen)
 	GameEvents.bonus_picked.connect(on_bonus_picked)
+	base_fire_rate_timer_wait_time = fire_rate_timer.wait_time
 	
 	
 func _process(_delta: float) -> void:
@@ -45,10 +47,9 @@ func animate_ship() -> void:
 	
 	
 func upgrade_fire_rate(bonus: Bonus) -> void:
-	var base_fire_rate_wait_time: float = fire_rate_timer.wait_time
 	fire_rate_timer.wait_time = fire_rate_timer.wait_time * (1 - bonus.value / 100)
 	await get_tree().create_timer(bonus.duration).timeout
-	fire_rate_timer.wait_time = base_fire_rate_wait_time
+	fire_rate_timer.wait_time = base_fire_rate_timer_wait_time
 	
 
 func on_fire_rate_timer_timeout() -> void:

@@ -3,6 +3,11 @@ extends Node
 
 @export var move_component: MoveComponent
 @export var move_stats: MoveStats
+var base_move_speed: float
+
+
+func _ready() -> void:
+	base_move_speed = move_stats.speed
 
 
 func _input(_event: InputEvent) -> void:
@@ -13,7 +18,6 @@ func _input(_event: InputEvent) -> void:
 
 
 func upgrade_movement_speed(bonus: Bonus) -> void:
-	var base_speed: float = move_stats.speed
 	move_stats.speed += bonus.value
 	await get_tree().create_timer(bonus. duration).timeout
-	move_stats.speed = base_speed
+	move_stats.speed = base_move_speed

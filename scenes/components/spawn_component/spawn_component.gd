@@ -8,5 +8,5 @@ func spawn(spawn_position: Vector2, parent: Node = get_tree().current_scene) -> 
 	if not scene:
 		return
 	var instance: Node2D = scene.instantiate()
-	parent.add_child(instance)
+	parent.call_deferred("add_child", instance)
 	instance.global_position = spawn_position

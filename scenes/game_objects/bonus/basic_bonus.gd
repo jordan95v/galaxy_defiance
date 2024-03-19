@@ -1,3 +1,4 @@
+class_name BasicBonus
 extends Node2D
 
 @onready var pickup_area: Area2D = $PickupArea

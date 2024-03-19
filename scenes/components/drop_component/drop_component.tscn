@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6w48rxednoop"]
+
+[ext_resource type="Script" path="res://scenes/components/drop_component/drop_component.gd" id="1_p02yf"]
+[ext_resource type="PackedScene" uid="uid://chfqqnuajer2b" path="res://scenes/components/spawn_component/spawn_component.tscn" id="2_1qeab"]
+
+[node name="DropComponent" type="Node"]
+script = ExtResource("1_p02yf")
+
+[node name="SpawnComponent" parent="." instance=ExtResource("2_1qeab")]

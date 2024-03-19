@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxiveaxttj6vb"]
+[gd_scene load_steps=7 format=3 uid="uid://cxiveaxttj6vb"]
 
 [ext_resource type="PackedScene" uid="uid://2v522uaf6evr" path="res://scenes/game_objects/ship/ship.tscn" id="1_uolv7"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_vbwxv"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://6okjpf8xs4hc" path="res://scenes/ui/game_over_menu/game_over_menu.tscn" id="2_7s5fa"]
 [ext_resource type="PackedScene" uid="uid://digchsganjtu" path="res://scenes/managers/enemy_manager/enemy_manager.tscn" id="2_hf1x8"]
 [ext_resource type="PackedScene" uid="uid://btkw6h1cx5ce" path="res://scenes/ui/score_ui/score_ui.tscn" id="7_e5xst"]
-[ext_resource type="PackedScene" uid="uid://b3esntjcqkg7d" path="res://scenes/game_objects/bonus/speed_bonus.tscn" id="7_eqqm1"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_vbwxv")
@@ -18,12 +17,11 @@ game_over_menu_scene = ExtResource("2_7s5fa")
 
 [node name="EnemyManager" parent="." instance=ExtResource("2_hf1x8")]
 
+[node name="Bonus" type="Node2D" parent="." groups=["bonus_layer"]]
+
 [node name="Entities" type="Node2D" parent="." groups=["entities"]]
 
 [node name="Projectiles" type="Node2D" parent="." groups=["projectiles"]]
 
 [node name="Ship" parent="." instance=ExtResource("1_uolv7")]
 position = Vector2(80, 222)
-
-[node name="SpeedBonus" parent="." instance=ExtResource("7_eqqm1")]
-position = Vector2(42, 114)
