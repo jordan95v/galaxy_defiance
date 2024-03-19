@@ -1,3 +1,4 @@
+class_name ClampComponent
 extends Node
 
 @export var actor: Node2D

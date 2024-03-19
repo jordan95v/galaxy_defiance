@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Bonus" load_steps=2 format=3 uid="uid://cdrk27fxujlfx"]
+
+[ext_resource type="Script" path="res://resources/bonus/bonus.gd" id="1_ucbce"]
+
+[resource]
+script = ExtResource("1_ucbce")
+id = "fire_rate"
+value = 50.0
+duration = 6.0

@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://b3esntjcqkg7d"]
+
+[ext_resource type="PackedScene" uid="uid://csy3aeec455wj" path="res://scenes/game_objects/bonus/basic_bonus.tscn" id="1_lqa8f"]
+[ext_resource type="Resource" uid="uid://cdrk27fxujlfx" path="res://resources/bonus/fire_rate_bonus.tres" id="2_imfbk"]
+[ext_resource type="Texture2D" uid="uid://cxnt3efddcb8s" path="res://assets/bonus.png" id="2_roj3e"]
+[ext_resource type="Resource" uid="uid://cp1vgxjvr8voi" path="res://resources/bonus/move_speed_bonus.tres" id="3_phapb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wv2q4"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q33py"]
+atlas = ExtResource("2_roj3e")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e0r4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q33py")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SpeedBonus" instance=ExtResource("1_lqa8f")]
+bonus_list = Array[Resource("res://resources/bonus/bonus.gd")]([ExtResource("2_imfbk"), ExtResource("3_phapb")])
+
+[node name="PickupArea" parent="." index="2"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" index="0"]
+shape = SubResource("CircleShape2D_wv2q4")
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_e0r4m")

@@ -5,7 +5,7 @@ signal died
 @onready var animated_sprite_2d: AnimatedSprite2D = $Visuals/AnimatedSprite2D
 @onready var flame_animated_sprite_2d: AnimatedSprite2D = $Visuals/FlameAnimatedSprite2D
 @onready var move_component: MoveComponent = $MoveComponent
-@onready var move_input_component: Node = $MoveInputComponent
+@onready var move_input_component: MoveInputComponent = $MoveInputComponent
 @onready var clamp_component: Node = $ClampComponent
 @onready var spawn_component: SpawnComponent = $SpawnComponent
 @onready var scale_component: ScaleComponent = $ScaleComponent
@@ -23,6 +23,7 @@ func _ready() -> void:
 	fire_rate_timer.timeout.connect(on_fire_rate_timer_timeout)
 	hurtbox_component.hurt.connect(on_hurt)
 	GameEvents.enemy_exited_screen.connect(on_enemy_exited_screen)
+	GameEvents.bonus_picked.connect(on_bonus_picked)
 	
 	
 func _process(_delta: float) -> void:
@@ -41,6 +42,13 @@ func animate_ship() -> void:
 		animation = "center"
 	animated_sprite_2d.play(animation)
 	flame_animated_sprite_2d.play(animation)
+	
+	
+func upgrade_fire_rate(bonus: Bonus) -> void:
+	var base_fire_rate_wait_time: float = fire_rate_timer.wait_time
+	fire_rate_timer.wait_time = fire_rate_timer.wait_time * (1 - bonus.value / 100)
+	await get_tree().create_timer(bonus.duration).timeout
+	fire_rate_timer.wait_time = base_fire_rate_wait_time
 	
 
 func on_fire_rate_timer_timeout() -> void:
@@ -61,3 +69,10 @@ func on_hurt() -> void:
 	scale_component.tween_scale()
 	shake_component.apply_random_shake()
 	animation_player.play("flash")
+	
+	
+func on_bonus_picked(bonus: Bonus) -> void:
+	if bonus.id == "fire_rate":
+		upgrade_fire_rate(bonus)
+	elif bonus.id == "move_speed":
+		move_input_component.upgrade_movement_speed(bonus)

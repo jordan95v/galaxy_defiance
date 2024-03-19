@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Bonus" load_steps=2 format=3 uid="uid://cp1vgxjvr8voi"]
+
+[ext_resource type="Script" path="res://resources/bonus/bonus.gd" id="1_6rv5m"]
+
+[resource]
+script = ExtResource("1_6rv5m")
+id = "move_speed"
+value = 30.0
+duration = 10.0
