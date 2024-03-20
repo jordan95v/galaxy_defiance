@@ -17,7 +17,7 @@ func _input(_event: InputEvent) -> void:
 	move_component.velocity = Vector2(axis * move_stats.speed, 0)
 
 
-func upgrade_movement_speed(bonus: Bonus) -> void:
+func upgrade_movement_speed(bonus: StatBonus) -> void:
 	move_stats.speed += bonus.value
-	await get_tree().create_timer(bonus. duration).timeout
+	await get_tree().create_timer(bonus.duration).timeout
 	move_stats.speed = base_move_speed

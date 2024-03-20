@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Bonus" load_steps=2 format=3 uid="uid://d1ann3f2mhjrh"]
+
+[ext_resource type="Script" path="res://resources/bonus/bonus.gd" id="1_ybcr0"]
+
+[resource]
+script = ExtResource("1_ybcr0")
+id = "freeze_enemies"
+duration = 4.0

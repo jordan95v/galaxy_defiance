@@ -46,7 +46,7 @@ func animate_ship() -> void:
 	flame_animated_sprite_2d.play(animation)
 	
 	
-func upgrade_fire_rate(bonus: Bonus) -> void:
+func upgrade_fire_rate(bonus: StatBonus) -> void:
 	fire_rate_timer.wait_time = fire_rate_timer.wait_time * (1 - bonus.value / 100)
 	await get_tree().create_timer(bonus.duration).timeout
 	fire_rate_timer.wait_time = base_fire_rate_timer_wait_time

@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://djoygge2j38hj"]
+
+[ext_resource type="PackedScene" uid="uid://csy3aeec455wj" path="res://scenes/game_objects/bonus/basic_bonus.tscn" id="1_i8t6q"]
+[ext_resource type="Resource" uid="uid://d1ann3f2mhjrh" path="res://resources/bonus/freeze_enemies.tres" id="2_4cbs2"]
+[ext_resource type="Texture2D" uid="uid://benwiooh5a5bw" path="res://assets/bonus/effect_area.png" id="3_dnmib"]
+[ext_resource type="Texture2D" uid="uid://dff2ogmr1jmb6" path="res://assets/bonus/item_held_box.png" id="4_eaq1w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jh5le"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhrxj"]
+atlas = ExtResource("3_dnmib")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p7wfx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhrxj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PowerBonus" instance=ExtResource("1_i8t6q")]
+bonus_list = Array[Resource("res://resources/bonus/bonus.gd")]([ExtResource("2_4cbs2")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" index="0"]
+shape = SubResource("CircleShape2D_jh5le")
+
+[node name="AnimatedSprite2D" parent="Visuals" index="0"]
+sprite_frames = SubResource("SpriteFrames_p7wfx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" index="1"]
+texture = ExtResource("4_eaq1w")

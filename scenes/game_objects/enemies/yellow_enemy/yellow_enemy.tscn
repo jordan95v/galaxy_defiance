@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhka7myj6255w"]
+[gd_scene load_steps=13 format=3 uid="uid://dhka7myj6255w"]
 
 [ext_resource type="PackedScene" uid="uid://b4k0gmi0kq2da" path="res://scenes/game_objects/enemies/basic_enemy.tscn" id="1_2w1av"]
 [ext_resource type="Script" path="res://scenes/game_objects/enemies/yellow_enemy/yellow_enemy.gd" id="2_2mm4w"]
 [ext_resource type="Shader" path="res://resources/effects/flash_shader.gdshader" id="2_ylywx"]
 [ext_resource type="PackedScene" uid="uid://brnaxmyooa7wh" path="res://scenes/components/bounce_border_component/bounce_border_component.tscn" id="3_2yylr"]
 [ext_resource type="Texture2D" uid="uid://c0jr1pbmwrp68" path="res://assets/enemies/yellow_enemy.png" id="3_aey7k"]
+[ext_resource type="PackedScene" uid="uid://djoygge2j38hj" path="res://scenes/game_objects/bonus/power_bonus.tscn" id="4_bdc80"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qurav"]
 resource_local_to_scene = true
@@ -54,7 +55,11 @@ health = 10
 actor = NodePath("..")
 move_component = NodePath("../MoveComponent")
 
-[node name="AnimatedSprite2D" parent="." index="8"]
+[node name="DropComponent" parent="." index="7"]
+bonus_scenes = Array[PackedScene]([ExtResource("4_bdc80")])
+pourcentage = 0.2
+
+[node name="AnimatedSprite2D" parent="." index="9"]
 material = SubResource("ShaderMaterial_qurav")
 sprite_frames = SubResource("SpriteFrames_moogu")
 autoplay = "default"
