@@ -18,6 +18,7 @@ signal died
 @onready var left_cannon: Marker2D = $LeftCannon
 @onready var right_cannon: Marker2D = $RightCannon
 var base_fire_rate_timer_wait_time: float
+var fire_rate_upgraded: bool = false
 
 
 func _ready() -> void:
