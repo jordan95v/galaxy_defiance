@@ -74,6 +74,9 @@ radius = 6.0
 
 [node name="GreenEnemy" instance=ExtResource("1_t2vxv")]
 
+[node name="MoveComponent" parent="." index="3"]
+velocity = Vector2(0, 25)
+
 [node name="DropComponent" parent="." index="6"]
 bonus_scenes = Array[PackedScene]([ExtResource("2_dqei4")])
 

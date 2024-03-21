@@ -71,7 +71,7 @@ projectiles = Array[PackedScene]([ExtResource("7_7ia8u"), ExtResource("5_q87f3")
 points = 15
 
 [node name="MoveComponent" parent="." index="3"]
-velocity = Vector2(0, 15)
+velocity = Vector2(0, 10)
 
 [node name="HealthComponent" parent="." index="4"]
 health = 8
@@ -91,7 +91,7 @@ autostart = true
 wait_time = 2.0
 autostart = true
 
-[node name="AnimatedSprite2D" parent="." index="11"]
+[node name="AnimatedSprite2D" parent="." index="12"]
 material = SubResource("ShaderMaterial_tv6ke")
 sprite_frames = SubResource("SpriteFrames_57t0g")
 autoplay = "default"
@@ -100,8 +100,8 @@ frame_progress = 0.755134
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
 shape = SubResource("CircleShape2D_i6vhk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
-shape = SubResource("CircleShape2D_ov28v")
-
 [node name="Marker2D" type="Marker2D" parent="." index="14"]
 position = Vector2(0, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_ov28v")
