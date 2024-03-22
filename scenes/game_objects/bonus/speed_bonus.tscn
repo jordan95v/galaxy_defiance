@@ -26,10 +26,6 @@ animations = [{
 [node name="SpeedBonus" instance=ExtResource("1_lqa8f")]
 bonus_list = Array[Resource("res://resources/bonus/bonus.gd")]([ExtResource("2_imfbk"), ExtResource("3_phapb")])
 
-[node name="PickupArea" parent="." index="2"]
-collision_layer = 0
-collision_mask = 4
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" index="0"]
 shape = SubResource("CircleShape2D_wv2q4")
 

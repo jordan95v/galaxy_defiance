@@ -12,8 +12,7 @@ var margin: int = 10
 
 func _ready() -> void:
 	spawn_component.scene = enemy_scene
-	timer.wait_time = wait_time
-	timer.start()
+	timer.start(wait_time)
 	timer.timeout.connect(on_timer_timeout)
 	
 	
@@ -30,3 +29,9 @@ func on_timer_timeout() -> void:
 	if not enemy_scene or current_score < score_threshold or not entities:
 		return
 	spawn_component.spawn(get_random_spawn_position(), entities)
+
+
+func suspend_spawn(duration: float) -> void:
+	timer.start(duration)
+	await timer.timeout
+	timer.start(wait_time)

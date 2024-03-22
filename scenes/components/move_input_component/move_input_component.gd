@@ -8,6 +8,7 @@ var base_move_speed: float
 
 func _ready() -> void:
 	base_move_speed = move_stats.speed
+	GameEvents.bonus_picked.connect(on_bonus_picked)
 
 
 func _input(_event: InputEvent) -> void:
@@ -17,7 +18,10 @@ func _input(_event: InputEvent) -> void:
 	move_component.velocity = Vector2(axis * move_stats.speed, 0)
 
 
-func upgrade_movement_speed(bonus: StatBonus) -> void:
-	move_stats.speed += bonus.value
-	await get_tree().create_timer(bonus.duration).timeout
+func on_bonus_picked(bonus: Bonus) -> void:
+	if not bonus.id == "move_speed":
+		return
+	var stats_bonus: StatBonus = bonus as StatBonus
+	move_stats.speed += stats_bonus.value
+	await get_tree().create_timer(stats_bonus.duration).timeout
 	move_stats.speed = base_move_speed

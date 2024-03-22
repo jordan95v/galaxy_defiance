@@ -28,4 +28,4 @@ game_over_menu_scene = ExtResource("2_7s5fa")
 position = Vector2(80, 222)
 
 [node name="PowerBonus" parent="." instance=ExtResource("7_h68w3")]
-position = Vector2(74, 75)
+position = Vector2(80, 103)

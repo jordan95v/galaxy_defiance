@@ -74,7 +74,6 @@ func on_hurt() -> void:
 	
 	
 func on_bonus_picked(bonus: Bonus) -> void:
-	if bonus.id == "fire_rate":
-		upgrade_fire_rate(bonus)
-	elif bonus.id == "move_speed":
-		move_input_component.upgrade_movement_speed(bonus)
+	if not bonus.id == "fire_rate":
+		return	
+	upgrade_fire_rate(bonus)

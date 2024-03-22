@@ -24,6 +24,7 @@ animations = [{
 }]
 
 [node name="PowerBonus" instance=ExtResource("1_i8t6q")]
+scale = Vector2(0.85, 0.85)
 bonus_list = Array[Resource("res://resources/bonus/bonus.gd")]([ExtResource("2_4cbs2")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea" index="0"]
